@@ -4,7 +4,7 @@ export default class FirstPage extends Component {
     render(){
         return(
             <div>
-                <h1>First Page</h1>
+                <h1>First Pagkhdffe dshdjs dhsjhdjs</h1>
             </div>
         )
     }
