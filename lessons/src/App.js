@@ -5,6 +5,7 @@ import PropTestClass from './component/PropTest';
 import {Layout} from 'antd';
 import FirstPage from './component/firstPage'
 import SecondPage from './component/secondPage'
+import * as firebase from 'firebase';
 
 const {Header, Footer, Sider, Content} = Layout;
 
@@ -45,14 +46,8 @@ class App extends Component {
   }
 
 
-  componentDidUnmount(){
-
-  }
-
-
-
-
   render() {
+      console.log(firebase)
     return (
       <Layout>
           <Header>
@@ -61,7 +56,7 @@ class App extends Component {
               </div>
           </Header>
           <Content>
-
+              <span>dklsdjasj;fl;jf;jl;fl;ajfgl;ajl;fj;afafsafkl;afl;al;f</span>
           </Content>
           <Footer>
 
