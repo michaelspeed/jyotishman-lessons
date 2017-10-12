@@ -1,29 +1,34 @@
 import React, {Component} from 'react'
 
-export default class PropTest extends Component {
+export default class PropTestClass extends Component {
+    state = {
+        defVal: null
+    }
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.value = 'blah'){
+            this.setState({
+                defVal: nextProps.value + nextProps.value
+            })
+        }
+    }
 
-  render(){
+    componentWillMount(){
+        if(this.props.value === 'blah'){
+            this.setState({
+                defVal : this.props.value + ' unlimted blah'
+            })
+        }
+    }
 
-    if(this.props.show){
-      return(
-        <div>
-          <h1>show blah</h1>
-          <p>hdjkhfjdsjkfdjksfgjkdshfjkdsjkfhjkshfjkshjkfhsjkfhjksfhjkshfjk</p>
-        </div>
-      )
-    } else {
-      return(
-        <div>
-          <h1>hide blah</h1>
-          <p>dkls
-          dss
-          dsdsd
-          sddds
-          dddsd
-          desc</p>
-        </div>
-      )
+    componentDidMount(){
 
     }
+
+  render(){
+      return(
+          <div>
+              <span style={{fontSize: 50}}>{this.state.defVal}</span>
+          </div>
+      )
   }
 }

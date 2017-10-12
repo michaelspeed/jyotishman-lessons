@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import PropTest from './component/PropTest';
+import PropTestClass from './component/PropTest';
 import FirstPage from './component/firstPage'
 import SecondPage from './component/secondPage'
 class App extends Component {
@@ -21,7 +21,7 @@ class App extends Component {
 
   clickFirst = () => {
       this.setState({
-          pageState: FirstRender()
+          pageState: <FirstPage/>
       })
   }
 
@@ -40,13 +40,12 @@ class App extends Component {
 
   }
 
-  componentWillUnmount(){
-
-  }
 
   componentDidUnmount(){
 
   }
+
+
 
 
   render() {
@@ -73,6 +72,9 @@ class App extends Component {
               <a onClick={this.clickSecond}>Second</a>
           </div>
           {this.state.pageState}
+          <div>
+              <PropTestClass value={'blah'}/>
+          </div>
       </div>
     );
   }
