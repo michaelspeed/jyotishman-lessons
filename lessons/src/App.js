@@ -1,41 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import PropTestClass from './component/PropTest';
 import {Layout} from 'antd';
-import FirstPage from './component/firstPage'
-import SecondPage from './component/secondPage'
 import * as firebase from 'firebase';
-
+import {config} from './firebase/firebase'
+import {Input, Button} from 'antd'
+import CreateUser from './component/auth/createUser'
 const {Header, Footer, Sider, Content} = Layout;
 
 class App extends Component {
-
-  state = {
-    intblah : 1,
-    booleanblah: true,
-      pageState: <div/>
-  }
-
-  onClickThis  = () => {
-    this.setState({
-      booleanblah: !this.state.booleanblah
-    })
-      this.blahinput.focus()
-  }
-
-  clickFirst = () => {
-      this.setState({
-          pageState: <FirstPage/>
-      })
-  }
-
-  clickSecond = () => {
-      this.setState({
-          pageState: <SecondPage/>
-      })
-
-  }
 
   componentWillMount(){
 
@@ -47,16 +20,17 @@ class App extends Component {
 
 
   render() {
-      console.log(firebase)
     return (
-      <Layout>
+      <Layout style={{height:'100%'}}>
           <Header>
               <div style={{display:'flex', flexDirection:'row'}}>
-                  <span style={{color:'white'}}>Lesson Chat</span>
+                  <span style={{color:'white', fontSize: 20}}>Lesson Chat</span>
               </div>
           </Header>
-          <Content>
-              <span>dklsdjasj;fl;jf;jl;fl;ajfgl;ajl;fj;afafsafkl;afl;al;f</span>
+          <Content style={{height:'100%'}}>
+            <div>
+                <CreateUser/>
+            </div>
           </Content>
           <Footer>
 
@@ -65,6 +39,7 @@ class App extends Component {
     );
   }
 }
+
 
 const FirstRender = () => {
     return(
