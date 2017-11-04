@@ -6,6 +6,7 @@ import * as firebase from 'firebase';
 import {config} from './firebase/firebase'
 import {Input, Button} from 'antd'
 import CreateUser from './component/auth/createUser'
+import SignInUser from './component/auth/signInUser'
 const {Header, Footer, Sider, Content} = Layout;
 
 class App extends Component {
@@ -29,7 +30,7 @@ class App extends Component {
           </Header>
           <Content style={{height:'100%'}}>
             <div>
-                <CreateUser/>
+                <SignInUser/>
             </div>
           </Content>
           <Footer>
