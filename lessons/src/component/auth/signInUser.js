@@ -37,10 +37,17 @@ export default class SignInUser extends Component{
       }
 
 checkAuth = () => {
-  
+    fireauth.onAuthStateChanged((user) => { 
+        if (user) {
+            console.log("user available")
+        } else { 
+            console.log("user missing")
+        }
+    })
 }
 
-    render(){
+    render() {
+        this.checkAuth()
         return(
           <div style={{height: 500, display: 'flex', alignItems: 'center', justifyContent:'center'}}>
               <div style={{width:  400}}>

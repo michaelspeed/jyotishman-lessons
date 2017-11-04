@@ -6,21 +6,48 @@ import * as firebase from 'firebase';
 import {config} from './firebase/firebase'
 import {Input, Button} from 'antd'
 import CreateUser from './component/auth/createUser'
+import Home from './component/home/home'
 import SignInUser from './component/auth/signInUser'
+import { fire } from './firebase/firebase'
+const fireauth = firebase.auth()
 const {Header, Footer, Sider, Content} = Layout;
 
+/*const carray = [0,1,2,3,4]
+const c = 10
+const newArray = [...carray, 10]*/
 class App extends Component {
 
-  componentWillMount(){
+    state = {
+        content: <SignInUser />,
+        auth: false
+    }
 
-  }
+    componentWillMount() {
+        
+        //this.state.auth = true  < ----- WRONG
+        fireauth.onAuthStateChanged((user) => { 
+            if (user) {
+                this.setState({
+                    content: <Home />,
+                    auth: true
+                })
+            } else { 
+                this.setState({
+                    content: <SignInUser />,
+                    auth: false
+                })
+            }
+        })
+    }
 
   componentDidMount(){
 
   }
+  
 
 
   render() {
+      console.log(this.state.auth)
     return (
       <Layout style={{height:'100%'}}>
           <Header>
@@ -30,7 +57,7 @@ class App extends Component {
           </Header>
           <Content style={{height:'100%'}}>
             <div>
-                <SignInUser/>
+                    {this.state.content}
             </div>
           </Content>
           <Footer>
